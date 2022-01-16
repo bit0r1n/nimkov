@@ -1,5 +1,7 @@
 MarkovGenerator	nimkov/generator.html#MarkovGenerator	generator: MarkovGenerator	
 addSample	nimkov/generator.html#addSample,MarkovGenerator,string	generator: addSample(generator: MarkovGenerator; sample: string)	
-newMarkov	nimkov/generator.html#newMarkov	generator: newMarkov(samples = newSeq[string]()): MarkovGenerator	
+addSample	nimkov/generator.html#addSample,MarkovGenerator,seq[string]	generator: addSample(generator: MarkovGenerator; samples: seq[string])	
+getSamples	nimkov/generator.html#getSamples,MarkovGenerator	generator: getSamples(generator: MarkovGenerator): seq[string]	
 cleanSamples	nimkov/generator.html#cleanSamples,MarkovGenerator	generator: cleanSamples(generator: MarkovGenerator)	
+newMarkov	nimkov/generator.html#newMarkov	generator: newMarkov(samples = newSeq[string]()): MarkovGenerator	
 generate	nimkov/generator.html#generate,MarkovGenerator	generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): Option[\n    string]	

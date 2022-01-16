@@ -6,7 +6,7 @@ proc unicodeStringToLower*(str: string): string =
     for s in runes(str):
         result.add(s.toLower.toUTF8)
 
-proc getRefTableKeys*[T](table: TableRef[T, any]): seq[T] =
+proc getRefTableKeys*[T](table: TableRef[T, auto]): seq[T] =
     ## Gets sequence of table keys.
     result = @[]
 

@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.0.1"
+version       = "1.0.2"
 author        = "bit0r1n"
 description   = "Text generator, based on Markov Chains (Markov text generator)"
 license       = "MIT"
@@ -15,6 +15,7 @@ task genDoc, "Generates the documentation for nimkov":
     exec("nim doc2 --outdir=docs --project --index:on --git.url:https://github.com/bit0r1n/nimkov --git.commit:master nimkov.nim")
     exec("nim buildindex -o:docs/theindex.html docs/")
 
+    writeFile("docs/CNAME", "nimkov.bitor.in")
     writeFile("docs/index.html", """
     <!DOCTYPE html>
     <html>

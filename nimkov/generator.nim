@@ -22,7 +22,7 @@ iterator sampleToFrames(sample: string): string =
     yield mrkvEnd
 
 proc addSample*(generator: MarkovGenerator, sample: string) =
-    ## Adds string to sequence of samples.
+    ## Adds string to samples.
     generator.samples.add(sample)
 
     let startIndex = generator.frames.high + 1
@@ -44,6 +44,19 @@ proc addSample*(generator: MarkovGenerator, sample: string) =
         else:
             generator.model[currentFrame] = newTable([(nextFrame, 1)])
 
+proc addSample*(generator: MarkovGenerator, samples: seq[string]) =
+    ## Adds seqence of strings to samples.
+    for sample in samples:
+        generator.addSample(sample)
+
+proc getSamples*(generator: MarkovGenerator): seq[string] = generator.samples
+    ## Returns all samples of generator.
+
+proc cleanSamples*(generator: MarkovGenerator) =
+    ## Removes all string from sequence of samples.
+    generator.samples.setLen(0)
+    generator.frames.setLen(0)
+
 proc newMarkov*(samples = newSeq[string]()): MarkovGenerator =
     ## Creates an instance of Markov generator.
     result = MarkovGenerator()
@@ -52,15 +65,10 @@ proc newMarkov*(samples = newSeq[string]()): MarkovGenerator =
     for sample in samples:
         result.addSample(sample)
 
-
-proc cleanSamples*(generator: MarkovGenerator) =
-    ## Removes all string from sequence of samples.
-    generator.samples.setLen(0)
-    generator.frames.setLen(0)
-
 proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions()): Option[string] =
     ## Generates a string.
-    if generator.samples.len == 0: raise MarkovGenerateError.newException("Sequence of samples is empty")
+    if generator.samples.len == 0:
+        raise MarkovGenerateError.newException("Sequence of samples is empty")
 
     var begin: string
     if options.begin.isNone: begin = mrkvStart

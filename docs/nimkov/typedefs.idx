@@ -1,6 +1,3 @@
-mrkvPrepareEmptySamples	nimkov/typedefs.html#mrkvPrepareEmptySamples	MarkovPrepareStatuses.mrkvPrepareEmptySamples	
-mrkvPrepareReady	nimkov/typedefs.html#mrkvPrepareReady	MarkovPrepareStatuses.mrkvPrepareReady	
-MarkovPrepareStatuses	nimkov/typedefs.html#MarkovPrepareStatuses	typedefs: MarkovPrepareStatuses	
 MarkovGenerateError	nimkov/typedefs.html#MarkovGenerateError	typedefs: MarkovGenerateError	
 MarkovValidator	nimkov/typedefs.html#MarkovValidator	typedefs: MarkovValidator	
 MarkovFormatter	nimkov/typedefs.html#MarkovFormatter	typedefs: MarkovFormatter	
