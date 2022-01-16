@@ -1,9 +1,6 @@
 import tables, strutils, options, random
 import utils, constants, objects, typedefs
 
-
-import typetraits
-
 randomize()
 
 # private fields moment
