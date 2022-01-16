@@ -7,7 +7,6 @@ import options
 import nimkov/generator
 
 let markov = newMarkov(@["hello world", "world of chains", "world for me"])
-markov.prepare()
 
 echo markov.generate().get
 ```
