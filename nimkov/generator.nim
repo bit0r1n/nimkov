@@ -1,6 +1,9 @@
 import tables, strutils, options, random
 import utils, constants, objects, typedefs
 
+
+import typetraits
+
 randomize()
 
 # private fields moment
@@ -8,44 +11,29 @@ type MarkovGenerator* = ref object
     samples: seq[string]
     frames: seq[string]
     model: TableRef[string, TableRef[string, int]]
-    ready: bool
 
-proc newMarkov*(samples = newSeq[string]()): MarkovGenerator =
-    ## Creates an instance of Markov generator.
-    result = MarkovGenerator(samples: samples, ready: false)
-    result.model = newTable[string, TableRef[string, int]]()
+iterator sampleToFrames(sample: string): string =
+    let words = unicodeStringToLower(sample)
+        .split(" ")
+
+    yield mrkvStart
+
+    for word in words:
+        if word == mrkvStart or word == mrkvEnd: continue
+        yield word
+
+    yield mrkvEnd
 
 proc addSample*(generator: MarkovGenerator, sample: string) =
     ## Adds string to sequence of samples.
     generator.samples.add(sample)
-    generator.ready = false
 
-proc cleanSamples*(generator: MarkovGenerator) =
-    ## Removes all string from sequence of samples.
-    generator.samples.setLen(0)
-    generator.frames.setLen(0)
-    generator.ready = false
+    let startIndex = generator.frames.high + 1
 
-proc prepare*(generator: MarkovGenerator): MarkovPrepareStatuses {.discardable.} =
-    ## Prepares a generator for working. Run it after initialization of Markov generator and adding new string.
-    if generator.samples.len == 0: return mrkvPrepareEmptySamples
-    if generator.ready == true: return mrkvPrepareReady
+    for frame in sampleToFrames(sample):
+        generator.frames.add(frame)
 
-    generator.frames.setLen(0)
-
-    for sample in generator.samples:
-        let words = unicodeStringToLower(sample)
-            .split(" ")
-
-        generator.frames.add(mrkvStart)
-
-        for word in words:
-            if word == mrkvStart or word == mrkvEnd: continue
-            generator.frames.add(word)
-
-        generator.frames.add(mrkvEnd)
-
-    for i in 0..generator.frames.len:
+    for i in startIndex..generator.frames.len:
         if (i + 1 > generator.frames.high): break
 
         let currentFrame = generator.frames[i]
@@ -59,12 +47,23 @@ proc prepare*(generator: MarkovGenerator): MarkovPrepareStatuses {.discardable.}
         else:
             generator.model[currentFrame] = newTable([(nextFrame, 1)])
 
-    generator.ready = true
-    return mrkvPrepareReady
+proc newMarkov*(samples = newSeq[string]()): MarkovGenerator =
+    ## Creates an instance of Markov generator.
+    result = MarkovGenerator()
+    result.model = newTable[string, TableRef[string, int]]()
+
+    for sample in samples:
+        result.addSample(sample)
+
+
+proc cleanSamples*(generator: MarkovGenerator) =
+    ## Removes all string from sequence of samples.
+    generator.samples.setLen(0)
+    generator.frames.setLen(0)
 
 proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions()): Option[string] =
     ## Generates a string.
-    if not generator.ready: raise MarkovGenerateError.newException("Generator must be prepare (call MarkovGenerator.prepare)")
+    if generator.samples.len == 0: raise MarkovGenerateError.newException("Sequence of samples is empty")
 
     var begin: string
     if options.begin.isNone: begin = mrkvStart

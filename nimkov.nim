@@ -22,8 +22,6 @@
 ##  markov.addSample("world of chains")
 ##  markov.addSample("world for me")
 ##
-##  markov.prepare()
-##
 ##  echo markov.generate().get
 
 ## 
