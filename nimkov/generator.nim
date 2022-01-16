@@ -1,5 +1,5 @@
 import tables, strutils, options, random
-import utils, constants, objects
+import utils, constants, objects, typedefs
 
 randomize()
 
@@ -16,7 +16,7 @@ proc newMarkov*(samples = newSeq[string]()): MarkovGenerator =
     result.model = newTable[string, TableRef[string, int]]()
 
 proc addSample*(generator: MarkovGenerator, sample: string) =
-    ## Add string to sequence of samples.
+    ## Adds string to sequence of samples.
     generator.samples.add(sample)
     generator.ready = false
 
@@ -63,7 +63,7 @@ proc prepare*(generator: MarkovGenerator): MarkovPrepareStatuses {.discardable.}
     return mrkvPrepareReady
 
 proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions()): Option[string] =
-    ## Generates string.
+    ## Generates a string.
     if not generator.ready: raise MarkovGenerateError.newException("Generator must be prepare (call MarkovGenerator.prepare)")
 
     var begin: string

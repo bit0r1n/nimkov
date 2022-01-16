@@ -2,6 +2,7 @@ import options
 
 type
     MarkovPrepareStatuses* = enum
+        ## Statuses of preparing process
         mrkvPrepareEmptySamples, mrkvPrepareReady
     MarkovGenerateError* = object of CatchableError
         ## Error of generator (not enough samples, generator is not prepared)

@@ -1,0 +1,2 @@
+unicodeStringToLower	nimkov/utils.html#unicodeStringToLower,string	utils: unicodeStringToLower(str: string): string	
+getRefTableKeys	nimkov/utils.html#getRefTableKeys,TableRef[T,any]	utils: getRefTableKeys[T](table: TableRef[T, any]): seq[T]	
