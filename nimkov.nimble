@@ -2,12 +2,12 @@
 
 version       = "1.0.1"
 author        = "bit0r1n"
-description   = "Cool text generator (Markov text generator)"
+description   = "Text generator, based on Markov Chains (Markov text generator)"
 license       = "MIT"
 
 # Dependencies
 
-requires "nim >= 1.4.8"
+requires "nim >= 0.20.0"
 
 
 task genDoc, "Generates the documentation for nimkov":
