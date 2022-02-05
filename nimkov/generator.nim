@@ -56,6 +56,7 @@ proc cleanSamples*(generator: MarkovGenerator) =
     ## Removes all string from sequence of samples.
     generator.samples.setLen(0)
     generator.frames.setLen(0)
+    generator.model.clear()
 
 proc newMarkov*(samples = newSeq[string]()): MarkovGenerator =
     ## Creates an instance of Markov generator.

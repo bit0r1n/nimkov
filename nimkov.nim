@@ -21,9 +21,10 @@
 ##  markov.addSample("hello world")
 ##  markov.addSample("world of chains")
 ##  markov.addSample("world for me")
+##  # or
+##  markov.addSample(@["hello world", "world of chains", "world for me"])
 ##
 ##  echo markov.generate().get
-
 ## 
 ## ----
 ## 
