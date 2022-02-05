@@ -1,5 +1,5 @@
 import tables, strutils, options, random
-import utils, constants, objects, typedefs
+import ./utils, ./constants, ./objects, ./typedefs
 
 randomize()
 

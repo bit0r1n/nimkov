@@ -1,5 +1,5 @@
 import options
-import typedefs, validators, formatters
+import ./typedefs, ./validators, ./formatters
 
 proc newMarkovGenerateOptions*(
         attempts = 1;

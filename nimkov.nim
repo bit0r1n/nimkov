@@ -28,7 +28,7 @@
 ## ----
 ## 
 
-import nimkov/[
+import ./nimkov/[
   formatters, validators, typedefs, generator
 ]
 

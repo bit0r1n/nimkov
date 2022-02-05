@@ -1,5 +1,5 @@
 import strutils
-import typedefs
+import ./typedefs
 
 proc defaultValidator*(): MarkovValidator = (proc (str: string): bool = true)
     ## Default validator for text. It always returns "true".
