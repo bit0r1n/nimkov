@@ -1,0 +1,3 @@
+defaultValidator	nimkov/validators.html#defaultValidator	validators: defaultValidator(): MarkovValidator	
+wordsCount	nimkov/validators.html#wordsCount,int	validators: wordsCount(min = 0; max = Inf.toInt): MarkovValidator	
+symbolsCount	nimkov/validators.html#symbolsCount,int	validators: symbolsCount(min = 0; max = Inf.toInt): MarkovValidator	

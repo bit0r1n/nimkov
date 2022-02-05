@@ -1,0 +1,1 @@
+defaultFormatter	nimkov/formatters.html#defaultFormatter,string	formatters: defaultFormatter(str: string): string	
