@@ -30,7 +30,7 @@
 ## 
 
 import ./nimkov/[
-  formatters, validators, typedefs, generator
+  validators, typedefs, generator, objects
 ]
 
-export formatters, validators, typedefs, generator
+export validators, typedefs, generator, objects

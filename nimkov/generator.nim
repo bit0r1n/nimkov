@@ -93,6 +93,6 @@ proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions())
         let stringResult = attemptResult[1..^2].join(" ")
 
         if options.validator(stringResult) == true:
-            return some options.formatter(stringResult)
+            return some stringResult
 
     return none string
