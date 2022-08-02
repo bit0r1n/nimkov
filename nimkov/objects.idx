@@ -1,1 +1,1 @@
-newMarkovGenerateOptions	nimkov/objects.html#newMarkovGenerateOptions,int	objects: newMarkovGenerateOptions(attempts = 1; begin = none string;\n                         validator = defaultValidator();\n                         formatter = defaultFormatter): MarkovGenerateOptions	
+newMarkovGenerateOptions	nimkov/objects.html#newMarkovGenerateOptions,int	objects: newMarkovGenerateOptions(attempts = 1; begin = none string;\n                         validator = defaultValidator()): MarkovGenerateOptions	
