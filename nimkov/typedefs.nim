@@ -11,4 +11,3 @@ type
         attempts*: int
         begin*: Option[string]
         validator*: MarkovValidator
-        formatter*: MarkovFormatter
