@@ -2,8 +2,6 @@
 ## 
 ## Reference
 ## =========
-## - `formatters` Includes default foramtter, that doesn't format text for resulting text from generator
-## 
 ## - `validators` Includes simple validators, such as "return text, that satisfy my limit of words or symbols"
 ## 
 ## - `generator` Includes Markov object and it functionally, such as preparing Markov generator to work, adding or removing all phrases and generating text
