@@ -114,12 +114,12 @@ window.addEventListener('DOMContentLoaded', main);
   </ul>
   <ul class="simple nested-toc-section">symbolsCount
       <li><a class="reference" href="#symbolsCount%2Cint"
-    title="symbolsCount(min = 0; max = Inf.toInt): MarkovValidator">symbolsCount(min = 0; max = Inf.toInt): MarkovValidator</a></li>
+    title="symbolsCount(min = 0; max = 0x7FF0000000000000'f64.toInt): MarkovValidator">symbolsCount(min = 0; max = 0x7FF0000000000000'f64.toInt): MarkovValidator</a></li>
 
   </ul>
   <ul class="simple nested-toc-section">wordsCount
       <li><a class="reference" href="#wordsCount%2Cint"
-    title="wordsCount(min = 0; max = Inf.toInt): MarkovValidator">wordsCount(min = 0; max = Inf.toInt): MarkovValidator</a></li>
+    title="wordsCount(min = 0; max = 0x7FF0000000000000'f64.toInt): MarkovValidator">wordsCount(min = 0; max = 0x7FF0000000000000'f64.toInt): MarkovValidator</a></li>
 
   </ul>
 
@@ -159,8 +159,8 @@ class="link-seesrc" target="_blank">Source</a>
 </dd>
 </div>
 <div id="symbolsCount,int">
-<dt><pre><span class="Keyword">proc</span> <a href="#symbolsCount%2Cint"><span class="Identifier">symbolsCount</span></a><span class="Other">(</span><span class="Identifier">min</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span> <span class="Identifier">max</span> <span class="Other">=</span> <span class="Identifier">Inf</span><span class="Other">.</span><span class="Identifier">toInt</span><span class="Other">)</span><span class="Other">:</span> <a href="typedefs.html#MarkovValidator"><span class="Identifier">MarkovValidator</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#symbolsCount%2Cint"><span class="Identifier">symbolsCount</span></a><span class="Other">(</span><span class="Identifier">min</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span> <span class="Identifier">max</span> <span class="Other">=</span> <span class="FloatNumber">0x7FF0000000000000'f64</span><span class="Other">.</span><span class="Identifier">toInt</span><span class="Other">)</span><span class="Other">:</span> <a href="typedefs.html#MarkovValidator"><span class="Identifier">MarkovValidator</span></a> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Validator, based on symbols count. Returns true, if count of symbols satisfy configured limits.
@@ -172,8 +172,8 @@ class="link-seesrc" target="_blank">Source</a>
 </dd>
 </div>
 <div id="wordsCount,int">
-<dt><pre><span class="Keyword">proc</span> <a href="#wordsCount%2Cint"><span class="Identifier">wordsCount</span></a><span class="Other">(</span><span class="Identifier">min</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span> <span class="Identifier">max</span> <span class="Other">=</span> <span class="Identifier">Inf</span><span class="Other">.</span><span class="Identifier">toInt</span><span class="Other">)</span><span class="Other">:</span> <a href="typedefs.html#MarkovValidator"><span class="Identifier">MarkovValidator</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+<dt><pre><span class="Keyword">proc</span> <a href="#wordsCount%2Cint"><span class="Identifier">wordsCount</span></a><span class="Other">(</span><span class="Identifier">min</span> <span class="Other">=</span> <span class="DecNumber">0</span><span class="Other">;</span> <span class="Identifier">max</span> <span class="Other">=</span> <span class="FloatNumber">0x7FF0000000000000'f64</span><span class="Other">.</span><span class="Identifier">toInt</span><span class="Other">)</span><span class="Other">:</span> <a href="typedefs.html#MarkovValidator"><span class="Identifier">MarkovValidator</span></a> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
 Validator, based on words count. Returns true, if count of words satisfy configured limits.
@@ -194,7 +194,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2022-08-02 16:46:35 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-02-23 08:30:42 UTC</small>
       </div>
     </div>
   </div>
