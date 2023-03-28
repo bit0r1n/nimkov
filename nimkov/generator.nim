@@ -9,6 +9,15 @@ type MarkovGenerator* = ref object
     model: Table[string, seq[string]]
     wordProc: MarkovProcessWordProc
 
+proc filterString(str: string): string =
+    var subResult = newSeq[string]()
+
+    for word in str.split(" "):
+        if word == mrkvStart or word == mrkvEnd: continue
+        subResult.add(word)
+
+    result = subResult.join(" ").strip()
+
 iterator sampleToFrames(sample: string, wordProc: MarkovProcessWordProc): string =
     yield mrkvStart
 
@@ -68,7 +77,9 @@ proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions())
 
     var begin: string
     if options.begin.isNone: begin = mrkvStart
-    else: begin = mrkvStart & " " & options.begin.get
+    else:
+        let filtered = filterString(options.begin.get())
+        begin = if filtered.len > 0: mrkvStart & " " & filtered else: mrkvStart
 
     let beginningFrames = begin.split(" ")
 

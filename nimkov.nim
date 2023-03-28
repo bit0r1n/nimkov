@@ -9,7 +9,6 @@
 ## Example of usage
 ## ================
 ## .. code-block:: nim
-##  import options
 ##  import nimkov/generator
 ##
 ##  let markov = newMarkov()

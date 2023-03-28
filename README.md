@@ -7,7 +7,6 @@ Nim library, that can help you to generate string, based on Markov chains (Marko
 
 ## Example
 ```nim
-import options
 import nimkov/generator
 
 let markov = newMarkov(@["hello world", "world of chains", "world for me"])

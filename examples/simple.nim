@@ -8,6 +8,6 @@ file.close()
 let markov = newMarkov(phrases)
 
 try:
-  echo markov.generate(newMarkovGenerateOptions(begin = some "игорь, ты", attempts = 1))
+  echo markov.generate(newMarkovGenerateOptions(begin = some "помнишь?", attempts = 1))
 except CatchableError as e:
   echo e.name
