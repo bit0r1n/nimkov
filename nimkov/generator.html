@@ -110,7 +110,6 @@ window.addEventListener('DOMContentLoaded', main);
       <li><a class="reference" href="#MarkovGenerator"
     title="MarkovGenerator = ref object
   samples: seq[string]
-  frames: seq[string]
   model: Table[string, seq[string]]
   wordProc: MarkovProcessWordProc">MarkovGenerator</a></li>
 
@@ -175,7 +174,6 @@ class="link-seesrc" target="_blank">Source</a>
 <div id="MarkovGenerator">
 <dt><pre><a href="generator.html#MarkovGenerator"><span class="Identifier">MarkovGenerator</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span>
   <span class="Identifier">samples</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
-  <span class="Identifier">frames</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
   <span class="Identifier">model</span><span class="Other">:</span> <span class="Identifier">Table</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">,</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span><span class="Other">]</span>
   <span class="Identifier">wordProc</span><span class="Other">:</span> <a href="typedefs.html#MarkovProcessWordProc"><span class="Identifier">MarkovProcessWordProc</span></a>
 </pre></dt>
@@ -201,9 +199,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Adds string to samples.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L26"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L23"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L26" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L23" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -214,9 +212,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Adds seqence of strings to samples.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L44"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L39"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L44" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -226,9 +224,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Removes all string from sequence of samples.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L52"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L47"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L52" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L47" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -240,9 +238,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Generates a string.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L70"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L64"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L70" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L64" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -252,9 +250,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Returns all samples of generator.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L49"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L44"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L49" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L44" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -266,9 +264,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Creates an instance of Markov generator.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L58"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/generator.nim#L52"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L58" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/generator.nim#L52" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -282,7 +280,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-28 09:15:11 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-28 09:39:02 UTC</small>
       </div>
     </div>
   </div>
