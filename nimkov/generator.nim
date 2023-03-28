@@ -67,10 +67,10 @@ proc newMarkov*(
     for sample in samples:
         result.addSample(sample)
 
-proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions()): Option[string] =
+proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions()): string =
     ## Generates a string.
     if generator.samples.len == 0:
-        raise MarkovGenerateError.newException("Sequence of samples is empty")
+        raise MarkovEmptyModelError.newException("Sequence of samples is empty")
 
     var begin: string
     if options.begin.isNone: begin = mrkvStart
@@ -84,7 +84,7 @@ proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions())
 
         while currentFrame != mrkvEnd:
             if not generator.model.hasKey(currentFrame):
-                raise MarkovGenerateError.newException("Not enough samples to use \"" & beginningFrames[1..^1].join(" ") & "\" as a beginning argument")
+                raise MarkovNotEnoughSamplesError.newException("Not enough samples to use \"" & beginningFrames[1..^1].join(" ") & "\" as a beginning argument")
             let nextFrame = sample(generator.model[currentFrame])
 
             attemptResult.add(nextFrame)
@@ -93,6 +93,6 @@ proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions())
         let stringResult = attemptResult[1..^2].join(" ")
 
         if options.validator(stringResult) == true:
-            return some stringResult
+            return stringResult
 
-    return none string
+    raise MarkovOutOfAttemptsError.newException("Out of attempts")
