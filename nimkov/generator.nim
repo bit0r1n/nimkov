@@ -31,10 +31,10 @@ iterator sampleToFrames(sample: string, wordProc: MarkovProcessWordProc): string
 
 proc addSample*(generator: MarkovGenerator, sample: string) =
     ## Adds string to samples.
-    generator.samples.add(sample)
-
     let samples = toSeq(sampleToFrames(sample, generator.wordProc))
     if samples.len == 2: return
+
+    generator.samples.add(samples[1..^2].join(" "))
 
     for i in 0..samples.high:
         if i + 1 > samples.high: break
