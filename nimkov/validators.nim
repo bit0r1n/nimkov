@@ -1,4 +1,4 @@
-import strutils
+import std/strutils
 from ./typedefs import MarkovValidator
 
 proc defaultValidator*(): MarkovValidator = (proc (str: string): bool = true)

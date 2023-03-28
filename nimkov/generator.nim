@@ -1,4 +1,4 @@
-import tables, strutils, options, random
+import std/[tables, strutils, options, random, sequtils]
 import ./utils, ./constants, ./objects, ./typedefs
 
 randomize()
@@ -6,16 +6,13 @@ randomize()
 # private fields moment
 type MarkovGenerator* = ref object
     samples: seq[string]
-    frames: seq[string]
     model: Table[string, seq[string]]
     wordProc: MarkovProcessWordProc
 
 iterator sampleToFrames(sample: string, wordProc: MarkovProcessWordProc): string =
-    let words = sample.split(" ")
-
     yield mrkvStart
 
-    for word in words:
+    for word in sample.split(" "):
         if word == mrkvStart or word == mrkvEnd: continue
         let newWord = wordProc(word)
         if newWord.isSome:
@@ -27,16 +24,14 @@ proc addSample*(generator: MarkovGenerator, sample: string) =
     ## Adds string to samples.
     generator.samples.add(sample)
 
-    let startIndex = generator.frames.high + 1
+    let samples = toSeq(sampleToFrames(sample, generator.wordProc))
+    if samples.len == 2: return
 
-    for frame in sampleToFrames(sample, generator.wordProc):
-        generator.frames.add(frame)
+    for i in 0..samples.high:
+        if i + 1 > samples.high: break
 
-    for i in startIndex..generator.frames.len:
-        if (i + 1 > generator.frames.high): break
-
-        let currentFrame = generator.frames[i]
-        let nextFrame = generator.frames[i + 1]
+        let currentFrame = samples[i]
+        let nextFrame = samples[i + 1]
 
         var curModel = generator.model.mgetOrPut(currentFrame, @[])
         if (nextFrame notin curModel):
@@ -52,7 +47,6 @@ proc getSamples*(generator: MarkovGenerator): seq[string] = generator.samples
 proc cleanSamples*(generator: MarkovGenerator) =
     ## Removes all string from sequence of samples.
     generator.samples.setLen(0)
-    generator.frames.setLen(0)
     generator.model.clear()
 
 proc newMarkov*(

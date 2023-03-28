@@ -1,4 +1,4 @@
-import options
+import std/options
 
 type
     MarkovError* = object of CatchableError

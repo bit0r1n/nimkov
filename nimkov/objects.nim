@@ -1,9 +1,9 @@
-import options
+import std/options
 from ./typedefs import MarkovGenerateOptions
 from ./validators import defaultValidator
 
 proc newMarkovGenerateOptions*(
-        attempts = 1;
+        attempts: Positive = 1;
         begin = none string;
         validator = defaultValidator();
     ): MarkovGenerateOptions =

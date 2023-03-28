@@ -1,4 +1,4 @@
-import unicode, tables
+import std/[unicode, tables]
 
 proc unicodeStringToLower*(str: string): string =
     ## Converts any text to lower case.
