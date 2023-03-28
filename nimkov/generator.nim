@@ -7,17 +7,19 @@ randomize()
 type MarkovGenerator* = ref object
     samples: seq[string]
     frames: seq[string]
-    model: TableRef[string, TableRef[string, int]]
+    model: Table[string, seq[string]]
+    wordProc: MarkovProcessWordProc
 
-iterator sampleToFrames(sample: string): string =
-    let words = unicodeStringToLower(sample)
-        .split(" ")
+iterator sampleToFrames(sample: string, wordProc: MarkovProcessWordProc): string =
+    let words = sample.split(" ")
 
     yield mrkvStart
 
     for word in words:
         if word == mrkvStart or word == mrkvEnd: continue
-        yield word
+        let newWord = wordProc(word)
+        if newWord.isSome:
+            yield newWord.get()
 
     yield mrkvEnd
 
@@ -27,7 +29,7 @@ proc addSample*(generator: MarkovGenerator, sample: string) =
 
     let startIndex = generator.frames.high + 1
 
-    for frame in sampleToFrames(sample):
+    for frame in sampleToFrames(sample, generator.wordProc):
         generator.frames.add(frame)
 
     for i in startIndex..generator.frames.len:
@@ -36,14 +38,9 @@ proc addSample*(generator: MarkovGenerator, sample: string) =
         let currentFrame = generator.frames[i]
         let nextFrame = generator.frames[i + 1]
 
-        if currentFrame in generator.model:
-            if (nextFrame in generator.model[currentFrame]):
-                generator.model[currentFrame][nextFrame] += 1
-            else:
-                generator.model[currentFrame][nextFrame] = 1
-        else:
-            generator.model[currentFrame] = newTable([(nextFrame, 1)])
-
+        var curModel = generator.model.mgetOrPut(currentFrame, @[])
+        if (nextFrame notin curModel):
+            generator.model[currentFrame].add(nextFrame)
 proc addSample*(generator: MarkovGenerator, samples: seq[string]) =
     ## Adds seqence of strings to samples.
     for sample in samples:
@@ -58,10 +55,14 @@ proc cleanSamples*(generator: MarkovGenerator) =
     generator.frames.setLen(0)
     generator.model.clear()
 
-proc newMarkov*(samples = newSeq[string]()): MarkovGenerator =
+proc newMarkov*(
+    samples = newSeq[string](),
+    wordProc: MarkovProcessWordProc = (proc (word: string): Option[string] = some word.unicodeStringToLower())
+): MarkovGenerator =
     ## Creates an instance of Markov generator.
     result = MarkovGenerator()
-    result.model = newTable[string, TableRef[string, int]]()
+    result.model = initTable[string, seq[string]]()
+    result.wordProc = wordProc
 
     for sample in samples:
         result.addSample(sample)
@@ -84,8 +85,7 @@ proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions())
         while currentFrame != mrkvEnd:
             if not generator.model.hasKey(currentFrame):
                 raise MarkovGenerateError.newException("Not enough samples to use \"" & beginningFrames[1..^1].join(" ") & "\" as a beginning argument")
-
-            let nextFrame = sample(generator.model[currentFrame].getRefTableKeys)
+            let nextFrame = sample(generator.model[currentFrame])
 
             attemptResult.add(nextFrame)
             currentFrame = nextFrame

@@ -1,5 +1,5 @@
 import options, std/os, strutils
-import nimkov/[generator, objects, validators]
+import ../nimkov/[generator, objects, validators]
 
 var file = open("texts.txt")
 let phrases = file.readAll().split("\n")

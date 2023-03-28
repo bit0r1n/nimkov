@@ -11,3 +11,5 @@ type
         attempts*: int
         begin*: Option[string]
         validator*: MarkovValidator
+    MarkovProcessWordProc* = proc (word: string): Option[string]
+        ## Process word, result string will be added to model, if you don't want to add word to model - return `none string`. Recommended to lower case, which is default
