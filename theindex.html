@@ -87,9 +87,7 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="generate" href="#generate"><span>generate:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): Option[
-    string]" href="nimkov/generator.html#generate%2CMarkovGenerator">generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): Option[
-    string]</a></li>
+          data-doc-search-tag="generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): string" href="nimkov/generator.html#generate%2CMarkovGenerator">generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): string</a></li>
           </ul></dd>
 <dt><a name="getRefTableKeys" href="#getRefTableKeys"><span>getRefTableKeys:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -99,9 +97,13 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="generator: getSamples(generator: MarkovGenerator): seq[string]" href="nimkov/generator.html#getSamples%2CMarkovGenerator">generator: getSamples(generator: MarkovGenerator): seq[string]</a></li>
           </ul></dd>
-<dt><a name="MarkovGenerateError" href="#MarkovGenerateError"><span>MarkovGenerateError:</span></a></dt><dd><ul class="simple">
+<dt><a name="MarkovEmptyModelError" href="#MarkovEmptyModelError"><span>MarkovEmptyModelError:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="typedefs: MarkovGenerateError" href="nimkov/typedefs.html#MarkovGenerateError">typedefs: MarkovGenerateError</a></li>
+          data-doc-search-tag="typedefs: MarkovEmptyModelError" href="nimkov/typedefs.html#MarkovEmptyModelError">typedefs: MarkovEmptyModelError</a></li>
+          </ul></dd>
+<dt><a name="MarkovError" href="#MarkovError"><span>MarkovError:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="typedefs: MarkovError" href="nimkov/typedefs.html#MarkovError">typedefs: MarkovError</a></li>
           </ul></dd>
 <dt><a name="MarkovGenerateOptions" href="#MarkovGenerateOptions"><span>MarkovGenerateOptions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -110,6 +112,18 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="MarkovGenerator" href="#MarkovGenerator"><span>MarkovGenerator:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="generator: MarkovGenerator" href="nimkov/generator.html#MarkovGenerator">generator: MarkovGenerator</a></li>
+          </ul></dd>
+<dt><a name="MarkovNotEnoughSamplesError" href="#MarkovNotEnoughSamplesError"><span>MarkovNotEnoughSamplesError:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="typedefs: MarkovNotEnoughSamplesError" href="nimkov/typedefs.html#MarkovNotEnoughSamplesError">typedefs: MarkovNotEnoughSamplesError</a></li>
+          </ul></dd>
+<dt><a name="MarkovOutOfAttemptsError" href="#MarkovOutOfAttemptsError"><span>MarkovOutOfAttemptsError:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="typedefs: MarkovOutOfAttemptsError" href="nimkov/typedefs.html#MarkovOutOfAttemptsError">typedefs: MarkovOutOfAttemptsError</a></li>
+          </ul></dd>
+<dt><a name="MarkovProcessWordProc" href="#MarkovProcessWordProc"><span>MarkovProcessWordProc:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="typedefs: MarkovProcessWordProc" href="nimkov/typedefs.html#MarkovProcessWordProc">typedefs: MarkovProcessWordProc</a></li>
           </ul></dd>
 <dt><a name="MarkovValidator" href="#MarkovValidator"><span>MarkovValidator:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -125,7 +139,9 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="newMarkov" href="#newMarkov"><span>newMarkov:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="generator: newMarkov(samples = newSeq[string]()): MarkovGenerator" href="nimkov/generator.html#newMarkov">generator: newMarkov(samples = newSeq[string]()): MarkovGenerator</a></li>
+          data-doc-search-tag="generator: newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (
+    word: string): Option[string] = result = some unicodeStringToLower(word))): MarkovGenerator" href="nimkov/generator.html#newMarkov%2CMarkovProcessWordProc">generator: newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (
+    word: string): Option[string] = result = some unicodeStringToLower(word))): MarkovGenerator</a></li>
           </ul></dd>
 <dt><a name="newMarkovGenerateOptions" href="#newMarkovGenerateOptions"><span>newMarkovGenerateOptions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -150,7 +166,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-02-23 08:31:48 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-28 09:10:43 UTC</small>
       </div>
     </div>
   </div>

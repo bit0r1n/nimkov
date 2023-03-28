@@ -101,13 +101,21 @@ window.addEventListener('DOMContentLoaded', main);
 <li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#MarkovGenerateError"
-    title="MarkovGenerateError = object of CatchableError">MarkovGenerateError</a></li>
+      <li><a class="reference" href="#MarkovEmptyModelError"
+    title="MarkovEmptyModelError = object of MarkovError">MarkovEmptyModelError</a></li>
+  <li><a class="reference" href="#MarkovError"
+    title="MarkovError = object of CatchableError">MarkovError</a></li>
   <li><a class="reference" href="#MarkovGenerateOptions"
     title="MarkovGenerateOptions = object of RootObj
-  attempts*: int
+  attempts*: Positive
   begin*: Option[string]
   validator*: MarkovValidator">MarkovGenerateOptions</a></li>
+  <li><a class="reference" href="#MarkovNotEnoughSamplesError"
+    title="MarkovNotEnoughSamplesError = object of MarkovError">MarkovNotEnoughSamplesError</a></li>
+  <li><a class="reference" href="#MarkovOutOfAttemptsError"
+    title="MarkovOutOfAttemptsError = object of MarkovError">MarkovOutOfAttemptsError</a></li>
+  <li><a class="reference" href="#MarkovProcessWordProc"
+    title="MarkovProcessWordProc = proc (word: string): Option[string]">MarkovProcessWordProc</a></li>
   <li><a class="reference" href="#MarkovValidator"
     title="MarkovValidator = proc (str: string): bool">MarkovValidator</a></li>
 
@@ -129,12 +137,24 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
-<div id="MarkovGenerateError">
-<dt><pre><a href="typedefs.html#MarkovGenerateError"><span class="Identifier">MarkovGenerateError</span></a> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">CatchableError</span>
+<div id="MarkovEmptyModelError">
+<dt><pre><a href="typedefs.html#MarkovEmptyModelError"><span class="Identifier">MarkovEmptyModelError</span></a> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="typedefs.html#MarkovError"><span class="Identifier">MarkovError</span></a>
   </pre></dt>
 <dd>
 
-Error of generator (not enough samples)
+Throws if trying to generate with empty model
+&nbsp;&nbsp;<a
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L5"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L5" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="MarkovError">
+<dt><pre><a href="typedefs.html#MarkovError"><span class="Identifier">MarkovError</span></a> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">CatchableError</span></pre></dt>
+<dd>
+
+
 &nbsp;&nbsp;<a
 href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L4"
 class="link-seesrc" target="_blank">Source</a>
@@ -144,7 +164,7 @@ class="link-seesrc" target="_blank">Source</a>
 </div>
 <div id="MarkovGenerateOptions">
 <dt><pre><a href="typedefs.html#MarkovGenerateOptions"><span class="Identifier">MarkovGenerateOptions</span></a> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span>
-  <span class="Identifier">attempts</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">int</span>
+  <span class="Identifier">attempts</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Positive</span>
   <span class="Identifier">begin</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
   <span class="Identifier">validator</span><span class="Operator">*</span><span class="Other">:</span> <a href="typedefs.html#MarkovValidator"><span class="Identifier">MarkovValidator</span></a>
 </pre></dt>
@@ -152,9 +172,47 @@ class="link-seesrc" target="_blank">Source</a>
 
 Options for generator.
 &nbsp;&nbsp;<a
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L15"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L15" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="MarkovNotEnoughSamplesError">
+<dt><pre><a href="typedefs.html#MarkovNotEnoughSamplesError"><span class="Identifier">MarkovNotEnoughSamplesError</span></a> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="typedefs.html#MarkovError"><span class="Identifier">MarkovError</span></a>
+  </pre></dt>
+<dd>
+
+Throws if not found last word of beginning in model
+&nbsp;&nbsp;<a
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L7"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L7" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="MarkovOutOfAttemptsError">
+<dt><pre><a href="typedefs.html#MarkovOutOfAttemptsError"><span class="Identifier">MarkovOutOfAttemptsError</span></a> <span class="Other">=</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="typedefs.html#MarkovError"><span class="Identifier">MarkovError</span></a>
+  </pre></dt>
+<dd>
+
+Throws if generating is out of attempts
+&nbsp;&nbsp;<a
 href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L9"
 class="link-seesrc" target="_blank">Source</a>
 &nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L9" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="MarkovProcessWordProc">
+<dt><pre><a href="typedefs.html#MarkovProcessWordProc"><span class="Identifier">MarkovProcessWordProc</span></a> <span class="Other">=</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">word</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span></pre></dt>
+<dd>
+
+Process word, result string will be added to model, if you don't want to add word to model - return <tt class="docutils literal"><span class="pre"><span class="Identifier">none</span> <span class="Identifier">string</span></span></tt>. Recommended to lower case always, which is default
+&nbsp;&nbsp;<a
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L20"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -164,9 +222,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Validator for generator. If generated text doesn't satisfy the validator - it will try to generate a new string, if the number of attempts allows.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L6"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L11"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L6" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L11" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -180,7 +238,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-02-23 08:31:48 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-28 09:10:43 UTC</small>
       </div>
     </div>
   </div>

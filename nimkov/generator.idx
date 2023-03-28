@@ -3,5 +3,5 @@ addSample	nimkov/generator.html#addSample,MarkovGenerator,string	generator: addS
 addSample	nimkov/generator.html#addSample,MarkovGenerator,seq[string]	generator: addSample(generator: MarkovGenerator; samples: seq[string])	
 getSamples	nimkov/generator.html#getSamples,MarkovGenerator	generator: getSamples(generator: MarkovGenerator): seq[string]	
 cleanSamples	nimkov/generator.html#cleanSamples,MarkovGenerator	generator: cleanSamples(generator: MarkovGenerator)	
-newMarkov	nimkov/generator.html#newMarkov	generator: newMarkov(samples = newSeq[string]()): MarkovGenerator	
-generate	nimkov/generator.html#generate,MarkovGenerator	generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): Option[\n    string]	
+newMarkov	nimkov/generator.html#newMarkov,MarkovProcessWordProc	generator: newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (\n    word: string): Option[string] = result = some unicodeStringToLower(word))): MarkovGenerator	
+generate	nimkov/generator.html#generate,MarkovGenerator	generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): string	
