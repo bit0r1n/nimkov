@@ -6,8 +6,6 @@
 ## 
 ## - `generator` Includes Markov object and it functionally, such as preparing Markov generator to work, adding or removing all phrases and generating text
 ## 
-## For getting generated text you should import `options` library and use `get` procedure!
-## 
 ## Example of usage
 ## ================
 ## .. code-block:: nim
@@ -22,7 +20,7 @@
 ##  # or
 ##  markov.addSample(@["hello world", "world of chains", "world for me"])
 ##
-##  echo markov.generate().get
+##  echo markov.generate()
 ## 
 ## ----
 ## 

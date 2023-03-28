@@ -12,5 +12,5 @@ import nimkov/generator
 
 let markov = newMarkov(@["hello world", "world of chains", "world for me"])
 
-echo markov.generate().get
+echo markov.generate()
 ```
