@@ -58,7 +58,7 @@ proc addSample*(generator: MarkovGenerator, sample: string) =
                     string, int]()
             if nextFrame notin generator.weightModel[currentFrame]:
                 generator.weightModel[currentFrame][nextFrame] = 1
-            generator.weightModel[currentFrame][nextFrame] += 1
+            else: generator.weightModel[currentFrame][nextFrame] += 1
 proc addSample*(generator: MarkovGenerator, samples: seq[string]) =
     ## Adds seqence of strings to samples.
     for sample in samples:
