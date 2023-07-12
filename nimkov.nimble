@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.2.0"
+version       = "1.2.1"
 author        = "bit0r1n"
 description   = "Text generator, based on Markov Chains (Markov text generator)"
 license       = "MIT"

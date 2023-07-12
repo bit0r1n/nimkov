@@ -10,4 +10,4 @@ proc wordsCount*(min = 0, max = int.high): MarkovValidator =
 
 proc symbolsCount*(min = 0, max = int.high): MarkovValidator =
     ## Validator, based on symbols count. Returns true, if count of symbols satisfy configured limits.
-    result = (proc (str: string): bool = str.len >= min and str.len <= max)
+    (proc (str: string): bool = str.len >= min and str.len <= max)

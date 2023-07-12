@@ -15,11 +15,11 @@
 ##
 ##  let markov = newMarkov()
 ##
-##  markov.addSample("hello world")
-##  markov.addSample("world of chains")
-##  markov.addSample("world for me")
+##  markov.add("hello world")
+##  markov.add("world of chains")
+##  markov.add("world for me")
 ##  # or
-##  markov.addSample(@["hello world", "world of chains", "world for me"])
+##  markov.add(@["hello world", "world of chains", "world for me"])
 ##
 ##  echo markov.generate()
 ## 

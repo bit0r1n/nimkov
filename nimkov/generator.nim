@@ -34,7 +34,7 @@ iterator sampleToFrames(sample: string, wordProc: MarkovProcessWordProc): string
 
     yield mrkvEnd
 
-proc addSample*(generator: MarkovGenerator, sample: string) =
+proc add*(generator: MarkovGenerator, sample: string) =
     ## Adds string to samples.
     let samples = toSeq(sampleToFrames(sample, generator.wordProc))
     if samples.len == 2: return
@@ -59,15 +59,15 @@ proc addSample*(generator: MarkovGenerator, sample: string) =
             if nextFrame notin generator.weightModel[currentFrame]:
                 generator.weightModel[currentFrame][nextFrame] = 1
             else: generator.weightModel[currentFrame][nextFrame] += 1
-proc addSample*(generator: MarkovGenerator, samples: seq[string]) =
+proc add*(generator: MarkovGenerator, samples: seq[string]) =
     ## Adds seqence of strings to samples.
     for sample in samples:
-        generator.addSample(sample)
+        generator.add(sample)
 
-proc getSamples*(generator: MarkovGenerator): seq[string] = generator.samples
+proc samples*(generator: MarkovGenerator): seq[string] = generator.samples
     ## Returns all samples of generator.
 
-proc getModel*(generator: MarkovGenerator): Table[string, seq[string]] =
+proc model*(generator: MarkovGenerator): Table[string, seq[string]] =
     ## Returns model of generator.
     case generator.kind
     of mgtSimple:
@@ -85,6 +85,7 @@ proc clear*(generator: MarkovGenerator) =
         generator.seqModel.clear()
     of mgtWeighted:
         generator.weightModel.clear()
+
 proc newMarkov*(
     samples = newSeq[string](),
     wordProc: MarkovProcessWordProc = (proc (word: string): Option[
@@ -100,7 +101,7 @@ proc newMarkov*(
     )
 
     for sample in samples:
-        result.addSample(sample)
+        result.add(sample)
 
 proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions()): string =
     ## Generates a string.
