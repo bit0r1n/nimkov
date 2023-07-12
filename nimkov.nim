@@ -6,6 +6,8 @@
 ## 
 ## - `generator` Includes Markov object and it functionally, such as preparing Markov generator to work, adding or removing all phrases and generating text
 ## 
+## - `typedefs` Includes all types, that used in this library
+## 
 ## Example of usage
 ## ================
 ## .. code-block:: nim
