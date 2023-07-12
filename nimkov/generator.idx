@@ -1,8 +1,8 @@
 MarkovGenerator	nimkov/generator.html#MarkovGenerator	generator: MarkovGenerator	
-addSample	nimkov/generator.html#addSample,MarkovGenerator,string	generator: addSample(generator: MarkovGenerator; sample: string)	
-addSample	nimkov/generator.html#addSample,MarkovGenerator,seq[string]	generator: addSample(generator: MarkovGenerator; samples: seq[string])	
-getSamples	nimkov/generator.html#getSamples,MarkovGenerator	generator: getSamples(generator: MarkovGenerator): seq[string]	
-getModel	nimkov/generator.html#getModel,MarkovGenerator	generator: getModel(generator: MarkovGenerator): Table[string, seq[string]]	
+add	nimkov/generator.html#add,MarkovGenerator,string	generator: add(generator: MarkovGenerator; sample: string)	
+add	nimkov/generator.html#add,MarkovGenerator,seq[string]	generator: add(generator: MarkovGenerator; samples: seq[string])	
+samples	nimkov/generator.html#samples,MarkovGenerator	generator: samples(generator: MarkovGenerator): seq[string]	
+model	nimkov/generator.html#model,MarkovGenerator	generator: model(generator: MarkovGenerator): Table[string, seq[string]]	
 clear	nimkov/generator.html#clear,MarkovGenerator	generator: clear(generator: MarkovGenerator)	
 newMarkov	nimkov/generator.html#newMarkov,MarkovProcessWordProc,MarkovGeneratorModelType	generator: newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (\n    word: string): Option[string] = result = some unicodeStringToLower(word));\n          kind: MarkovGeneratorModelType = mgtSimple; cacheSamples = true): MarkovGenerator	
 generate	nimkov/generator.html#generate,MarkovGenerator	generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): string	
