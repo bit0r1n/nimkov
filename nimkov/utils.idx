@@ -1,1 +1,2 @@
 unicodeStringToLower	nimkov/utils.html#unicodeStringToLower,string	utils: unicodeStringToLower(str: string): string	
+weightedRandom	nimkov/utils.html#weightedRandom,openArray[tuple[T,int]]	utils: weightedRandom[T](weights: openArray[tuple[key: T, weight: int]]): T	

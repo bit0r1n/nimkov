@@ -3,5 +3,8 @@ MarkovEmptyModelError	nimkov/typedefs.html#MarkovEmptyModelError	typedefs: Marko
 MarkovNotEnoughSamplesError	nimkov/typedefs.html#MarkovNotEnoughSamplesError	typedefs: MarkovNotEnoughSamplesError	
 MarkovOutOfAttemptsError	nimkov/typedefs.html#MarkovOutOfAttemptsError	typedefs: MarkovOutOfAttemptsError	
 MarkovValidator	nimkov/typedefs.html#MarkovValidator	typedefs: MarkovValidator	
+mgtSimple	nimkov/typedefs.html#mgtSimple	MarkovGeneratorModelType.mgtSimple	
+mgtWeighted	nimkov/typedefs.html#mgtWeighted	MarkovGeneratorModelType.mgtWeighted	
+MarkovGeneratorModelType	nimkov/typedefs.html#MarkovGeneratorModelType	typedefs: MarkovGeneratorModelType	
 MarkovGenerateOptions	nimkov/typedefs.html#MarkovGenerateOptions	typedefs: MarkovGenerateOptions	
 MarkovProcessWordProc	nimkov/typedefs.html#MarkovProcessWordProc	typedefs: MarkovProcessWordProc	

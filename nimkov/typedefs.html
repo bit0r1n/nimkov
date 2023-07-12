@@ -110,6 +110,9 @@ window.addEventListener('DOMContentLoaded', main);
   attempts*: Positive
   begin*: Option[string]
   validator*: MarkovValidator">MarkovGenerateOptions</a></li>
+  <li><a class="reference" href="#MarkovGeneratorModelType"
+    title="MarkovGeneratorModelType = enum
+  mgtSimple, mgtWeighted">MarkovGeneratorModelType</a></li>
   <li><a class="reference" href="#MarkovNotEnoughSamplesError"
     title="MarkovNotEnoughSamplesError = object of MarkovError">MarkovNotEnoughSamplesError</a></li>
   <li><a class="reference" href="#MarkovOutOfAttemptsError"
@@ -172,9 +175,22 @@ class="link-seesrc" target="_blank">Source</a>
 
 Options for generator.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L15"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L22"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L15" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L22" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="MarkovGeneratorModelType">
+<dt><pre><a href="typedefs.html#MarkovGeneratorModelType"><span class="Identifier">MarkovGeneratorModelType</span></a> <span class="Other">=</span> <span class="Keyword">enum</span>
+  <span class="Identifier">mgtSimple</span><span class="Other">,</span> <span class="Identifier">mgtWeighted</span></pre></dt>
+<dd>
+
+Type of model, which will be used in generator. <tt class="docutils literal"><span class="pre"><span class="Identifier">mgtSimple</span></span></tt> - simple model, which will be generated with equal probability, i.e. model will be <tt class="docutils literal"><span class="pre"><span class="Identifier">Table</span><span class="Punctuation">[</span><span class="Identifier">string</span><span class="Punctuation">,</span> <span class="Identifier">seq</span><span class="Punctuation">[</span><span class="Identifier">string</span><span class="Punctuation">]</span><span class="Punctuation">]</span></span></tt> <tt class="docutils literal"><span class="pre"><span class="Identifier">mgtWeighted</span></span></tt> - weighted model, which will be generated with weighted probability, i.e. model will be <tt class="docutils literal"><span class="pre"><span class="Identifier">Table</span><span class="Punctuation">[</span><span class="Identifier">string</span><span class="Punctuation">,</span> <span class="Identifier">Table</span><span class="Punctuation">[</span><span class="Identifier">string</span><span class="Punctuation">,</span> <span class="Identifier">int</span><span class="Punctuation">]</span><span class="Punctuation">]</span></span></tt>
+&nbsp;&nbsp;<a
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L16"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L16" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -210,9 +226,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Process word, result string will be added to model, if you don't want to add word to model - return <tt class="docutils literal"><span class="pre"><span class="Identifier">none</span> <span class="Identifier">string</span></span></tt>. Recommended to lower case always, which is default
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L20"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L27"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L27" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -222,9 +238,9 @@ class="link-seesrc" target="_blank">Source</a>
 
 Validator for generator. If generated text doesn't satisfy the validator - it will try to generate a new string, if the number of attempts allows.
 &nbsp;&nbsp;<a
-href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L11"
+href="https://github.com/bit0r1n/nimkov/tree/master/nimkov/typedefs.nim#L12"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L11" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/bit0r1n/nimkov/edit/devel/nimkov/typedefs.nim#L12" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -238,7 +254,7 @@ class="link-seesrc" target="_blank">Source</a>
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-28 18:11:10 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-12 19:25:34 UTC</small>
       </div>
     </div>
   </div>

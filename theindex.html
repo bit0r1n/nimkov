@@ -77,9 +77,9 @@ window.addEventListener('DOMContentLoaded', main);
           <li><a class="reference external"
           data-doc-search-tag="generator: addSample(generator: MarkovGenerator; sample: string)" href="nimkov/generator.html#addSample%2CMarkovGenerator%2Cstring">generator: addSample(generator: MarkovGenerator; sample: string)</a></li>
           </ul></dd>
-<dt><a name="cleanSamples" href="#cleanSamples"><span>cleanSamples:</span></a></dt><dd><ul class="simple">
+<dt><a name="clear" href="#clear"><span>clear:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="generator: cleanSamples(generator: MarkovGenerator)" href="nimkov/generator.html#cleanSamples%2CMarkovGenerator">generator: cleanSamples(generator: MarkovGenerator)</a></li>
+          data-doc-search-tag="generator: clear(generator: MarkovGenerator)" href="nimkov/generator.html#clear%2CMarkovGenerator">generator: clear(generator: MarkovGenerator)</a></li>
           </ul></dd>
 <dt><a name="defaultValidator" href="#defaultValidator"><span>defaultValidator:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -88,6 +88,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="generate" href="#generate"><span>generate:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): string" href="nimkov/generator.html#generate%2CMarkovGenerator">generator: generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): string</a></li>
+          </ul></dd>
+<dt><a name="getModel" href="#getModel"><span>getModel:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="generator: getModel(generator: MarkovGenerator): Table[string, seq[string]]" href="nimkov/generator.html#getModel%2CMarkovGenerator">generator: getModel(generator: MarkovGenerator): Table[string, seq[string]]</a></li>
           </ul></dd>
 <dt><a name="getSamples" href="#getSamples"><span>getSamples:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -109,6 +113,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="generator: MarkovGenerator" href="nimkov/generator.html#MarkovGenerator">generator: MarkovGenerator</a></li>
           </ul></dd>
+<dt><a name="MarkovGeneratorModelType" href="#MarkovGeneratorModelType"><span>MarkovGeneratorModelType:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="typedefs: MarkovGeneratorModelType" href="nimkov/typedefs.html#MarkovGeneratorModelType">typedefs: MarkovGeneratorModelType</a></li>
+          </ul></dd>
 <dt><a name="MarkovNotEnoughSamplesError" href="#MarkovNotEnoughSamplesError"><span>MarkovNotEnoughSamplesError:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="typedefs: MarkovNotEnoughSamplesError" href="nimkov/typedefs.html#MarkovNotEnoughSamplesError">typedefs: MarkovNotEnoughSamplesError</a></li>
@@ -125,6 +133,14 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="typedefs: MarkovValidator" href="nimkov/typedefs.html#MarkovValidator">typedefs: MarkovValidator</a></li>
           </ul></dd>
+<dt><a name="mgtSimple" href="#mgtSimple"><span>mgtSimple:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="MarkovGeneratorModelType.mgtSimple" href="nimkov/typedefs.html#mgtSimple">MarkovGeneratorModelType.mgtSimple</a></li>
+          </ul></dd>
+<dt><a name="mgtWeighted" href="#mgtWeighted"><span>mgtWeighted:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="MarkovGeneratorModelType.mgtWeighted" href="nimkov/typedefs.html#mgtWeighted">MarkovGeneratorModelType.mgtWeighted</a></li>
+          </ul></dd>
 <dt><a name="mrkvEnd" href="#mrkvEnd"><span>mrkvEnd:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="constants: mrkvEnd" href="nimkov/constants.html#mrkvEnd">constants: mrkvEnd</a></li>
@@ -136,8 +152,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="newMarkov" href="#newMarkov"><span>newMarkov:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="generator: newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (
-    word: string): Option[string] = result = some unicodeStringToLower(word))): MarkovGenerator" href="nimkov/generator.html#newMarkov%2CMarkovProcessWordProc">generator: newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (
-    word: string): Option[string] = result = some unicodeStringToLower(word))): MarkovGenerator</a></li>
+    word: string): Option[string] = result = some unicodeStringToLower(word));
+          kind: MarkovGeneratorModelType = mgtSimple; cacheSamples = true): MarkovGenerator" href="nimkov/generator.html#newMarkov%2CMarkovProcessWordProc%2CMarkovGeneratorModelType">generator: newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (
+    word: string): Option[string] = result = some unicodeStringToLower(word));
+          kind: MarkovGeneratorModelType = mgtSimple; cacheSamples = true): MarkovGenerator</a></li>
           </ul></dd>
 <dt><a name="newMarkovGenerateOptions" href="#newMarkovGenerateOptions"><span>newMarkovGenerateOptions:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -147,22 +165,26 @@ window.addEventListener('DOMContentLoaded', main);
           </ul></dd>
 <dt><a name="symbolsCount" href="#symbolsCount"><span>symbolsCount:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="validators: symbolsCount(min = 0; max = 0x7FF0000000000000&apos;f64.toInt): MarkovValidator" href="nimkov/validators.html#symbolsCount%2Cint">validators: symbolsCount(min = 0; max = 0x7FF0000000000000&apos;f64.toInt): MarkovValidator</a></li>
+          data-doc-search-tag="validators: symbolsCount(min = 0; max = int.high): MarkovValidator" href="nimkov/validators.html#symbolsCount%2Cint">validators: symbolsCount(min = 0; max = int.high): MarkovValidator</a></li>
           </ul></dd>
 <dt><a name="unicodeStringToLower" href="#unicodeStringToLower"><span>unicodeStringToLower:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="utils: unicodeStringToLower(str: string): string" href="nimkov/utils.html#unicodeStringToLower%2Cstring">utils: unicodeStringToLower(str: string): string</a></li>
           </ul></dd>
+<dt><a name="weightedRandom" href="#weightedRandom"><span>weightedRandom:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="utils: weightedRandom[T](weights: openArray[tuple[key: T, weight: int]]): T" href="nimkov/utils.html#weightedRandom%2CopenArray%5Btuple%5BT%2Cint%5D%5D">utils: weightedRandom[T](weights: openArray[tuple[key: T, weight: int]]): T</a></li>
+          </ul></dd>
 <dt><a name="wordsCount" href="#wordsCount"><span>wordsCount:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="validators: wordsCount(min = 0; max = 0x7FF0000000000000&apos;f64.toInt): MarkovValidator" href="nimkov/validators.html#wordsCount%2Cint">validators: wordsCount(min = 0; max = 0x7FF0000000000000&apos;f64.toInt): MarkovValidator</a></li>
+          data-doc-search-tag="validators: wordsCount(min = 0; max = int.high): MarkovValidator" href="nimkov/validators.html#wordsCount%2Cint">validators: wordsCount(min = 0; max = int.high): MarkovValidator</a></li>
           </ul></dd>
 </dl>
     <div class="row">
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-03-28 18:11:11 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-12 19:25:34 UTC</small>
       </div>
     </div>
   </div>
