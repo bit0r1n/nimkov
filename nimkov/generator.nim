@@ -12,7 +12,7 @@ type MarkovGenerator* = ref object
     of mgtSimple:
         seqModel: Table[string, seq[string]]
     of mgtWeighted:
-        weightModel: Table[string, Table[string, int]]
+        weightModel: Table[string, CountTable[string]]
 
 proc filterString(str: string): string =
     var subResult = newSeq[string]()
@@ -54,11 +54,8 @@ proc add*(generator: MarkovGenerator, sample: string) =
             generator.seqModel[currentFrame].add(nextFrame)
         of mgtWeighted:
             if currentFrame notin generator.weightModel:
-                generator.weightModel[currentFrame] = initTable[
-                    string, int]()
-            if nextFrame notin generator.weightModel[currentFrame]:
-                generator.weightModel[currentFrame][nextFrame] = 1
-            else: generator.weightModel[currentFrame][nextFrame] += 1
+                generator.weightModel[currentFrame] = initCountTable[string]()
+            generator.weightModel[currentFrame].inc(nextFrame)
 proc add*(generator: MarkovGenerator, samples: seq[string]) =
     ## Adds seqence of strings to samples.
     for sample in samples:
@@ -67,15 +64,16 @@ proc add*(generator: MarkovGenerator, samples: seq[string]) =
 proc samples*(generator: MarkovGenerator): seq[string] = generator.samples
     ## Returns all samples of generator.
 
-proc model*(generator: MarkovGenerator): Table[string, seq[string]] =
+proc model*(generator: MarkovGenerator): Table[string, CountTable[string]] =
     ## Returns model of generator.
     case generator.kind
-    of mgtSimple:
-        result = generator.seqModel
     of mgtWeighted:
-        result = initTable[string, seq[string]]()
-        for key, value in generator.weightModel.pairs:
-            result[key] = value.keys.toSeq
+        result = generator.weightModel
+    of mgtSimple:
+        for key, value in generator.seqModel:
+            result[key] = initCountTable[string]()
+            for frame in value:
+                result[key][frame] = 1 # always will be 1 since in simple model frames are unique
 
 proc clear*(generator: MarkovGenerator) =
     ## Clears generator.
