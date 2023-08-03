@@ -1,3 +1,4 @@
-defaultValidator	nimkov/validators.html#defaultValidator	validators: defaultValidator(): MarkovValidator	
-wordsCount	nimkov/validators.html#wordsCount,int	validators: wordsCount(min = 0; max = int.high): MarkovValidator	
-symbolsCount	nimkov/validators.html#symbolsCount,int	validators: symbolsCount(min = 0; max = int.high): MarkovValidator	
+nimTitle	validators	nimkov/validators.html	module nimkov/validators		0
+nim	defaultValidator	nimkov/validators.html#defaultValidator	proc defaultValidator(): MarkovValidator		4
+nim	wordsCount	nimkov/validators.html#wordsCount,int	proc wordsCount(min = 0; max = int.high): MarkovValidator		7
+nim	symbolsCount	nimkov/validators.html#symbolsCount,int	proc symbolsCount(min = 0; max = int.high): MarkovValidator		11

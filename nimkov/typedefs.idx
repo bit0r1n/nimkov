@@ -1,10 +1,11 @@
-MarkovError	nimkov/typedefs.html#MarkovError	typedefs: MarkovError	
-MarkovEmptyModelError	nimkov/typedefs.html#MarkovEmptyModelError	typedefs: MarkovEmptyModelError	
-MarkovNotEnoughSamplesError	nimkov/typedefs.html#MarkovNotEnoughSamplesError	typedefs: MarkovNotEnoughSamplesError	
-MarkovOutOfAttemptsError	nimkov/typedefs.html#MarkovOutOfAttemptsError	typedefs: MarkovOutOfAttemptsError	
-MarkovValidator	nimkov/typedefs.html#MarkovValidator	typedefs: MarkovValidator	
-mgtSimple	nimkov/typedefs.html#mgtSimple	MarkovGeneratorModelType.mgtSimple	
-mgtWeighted	nimkov/typedefs.html#mgtWeighted	MarkovGeneratorModelType.mgtWeighted	
-MarkovGeneratorModelType	nimkov/typedefs.html#MarkovGeneratorModelType	typedefs: MarkovGeneratorModelType	
-MarkovGenerateOptions	nimkov/typedefs.html#MarkovGenerateOptions	typedefs: MarkovGenerateOptions	
-MarkovProcessWordProc	nimkov/typedefs.html#MarkovProcessWordProc	typedefs: MarkovProcessWordProc	
+nimTitle	typedefs	nimkov/typedefs.html	module nimkov/typedefs		0
+nim	MarkovError	nimkov/typedefs.html#MarkovError	object MarkovError		4
+nim	MarkovEmptyModelError	nimkov/typedefs.html#MarkovEmptyModelError	object MarkovEmptyModelError		5
+nim	MarkovNotEnoughSamplesError	nimkov/typedefs.html#MarkovNotEnoughSamplesError	object MarkovNotEnoughSamplesError		7
+nim	MarkovOutOfAttemptsError	nimkov/typedefs.html#MarkovOutOfAttemptsError	object MarkovOutOfAttemptsError		9
+nim	MarkovValidator	nimkov/typedefs.html#MarkovValidator	type MarkovValidator		12
+nim	mgtSimple	nimkov/typedefs.html#mgtSimple	MarkovGeneratorModelType.mgtSimple		16
+nim	mgtWeighted	nimkov/typedefs.html#mgtWeighted	MarkovGeneratorModelType.mgtWeighted		16
+nim	MarkovGeneratorModelType	nimkov/typedefs.html#MarkovGeneratorModelType	enum MarkovGeneratorModelType		16
+nim	MarkovGenerateOptions	nimkov/typedefs.html#MarkovGenerateOptions	object MarkovGenerateOptions		22
+nim	MarkovProcessWordProc	nimkov/typedefs.html#MarkovProcessWordProc	type MarkovProcessWordProc		27

@@ -1,2 +1,3 @@
-mrkvStart	nimkov/constants.html#mrkvStart	constants: mrkvStart	
-mrkvEnd	nimkov/constants.html#mrkvEnd	constants: mrkvEnd	
+nimTitle	constants	nimkov/constants.html	module nimkov/constants		0
+nim	mrkvStart	nimkov/constants.html#mrkvStart	const mrkvStart		2
+nim	mrkvEnd	nimkov/constants.html#mrkvEnd	const mrkvEnd		3

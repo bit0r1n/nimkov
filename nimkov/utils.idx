@@ -1,2 +1,3 @@
-unicodeStringToLower	nimkov/utils.html#unicodeStringToLower,string	utils: unicodeStringToLower(str: string): string	
-weightedRandom	nimkov/utils.html#weightedRandom,openArray[tuple[T,int]]	utils: weightedRandom[T](weights: openArray[tuple[key: T, weight: int]]): T	
+nimTitle	utils	nimkov/utils.html	module nimkov/utils		0
+nim	unicodeStringToLower	nimkov/utils.html#unicodeStringToLower,string	proc unicodeStringToLower(str: string): string		3
+nim	weightedRandom	nimkov/utils.html#weightedRandom,openArray[tuple[T,int]]	proc weightedRandom[T](weights: openArray[tuple[key: T, weight: int]]): T		9
