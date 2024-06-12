@@ -1,4 +1,4 @@
-import std/[unicode, random]
+import std/[ unicode, random ]
 
 proc unicodeStringToLower*(str: string): string =
     ## Converts any text to lower case.

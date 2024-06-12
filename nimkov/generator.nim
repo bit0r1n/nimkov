@@ -1,13 +1,11 @@
-import std/[tables, strutils, options, random, sequtils]
-import ./utils, ./constants, ./objects, ./typedefs
+import std/[ tables, strutils, options, random, sequtils ]
+import ./[ utils, constants, objects, typedefs ]
 
 randomize()
 
 # private fields moment
 type MarkovGenerator* = ref object
-    samples: seq[string]
     wordProc: MarkovProcessWordProc
-    cacheSamples: bool
     case kind*: MarkovGeneratorModelType
     of mgtSimple:
         seqModel: Table[string, seq[string]]
@@ -39,8 +37,6 @@ proc add*(generator: MarkovGenerator, sample: string) =
     let samples = toSeq(sampleToFrames(sample, generator.wordProc))
     if samples.len == 2: return
 
-    if generator.cacheSamples: generator.samples.add(samples[1..^2].join(" "))
-
     for i in 0..samples.high:
         if i + 1 > samples.high: break
 
@@ -61,9 +57,6 @@ proc add*(generator: MarkovGenerator, samples: seq[string]) =
     for sample in samples:
         generator.add(sample)
 
-proc samples*(generator: MarkovGenerator): seq[string] = generator.samples
-    ## Returns all samples of generator.
-
 proc model*(generator: MarkovGenerator): Table[string, CountTable[string]] =
     ## Returns model of generator.
     case generator.kind
@@ -77,7 +70,6 @@ proc model*(generator: MarkovGenerator): Table[string, CountTable[string]] =
 
 proc clear*(generator: MarkovGenerator) =
     ## Clears generator.
-    generator.samples.setLen(0)
     case generator.kind
     of mgtSimple:
         generator.seqModel.clear()
@@ -85,17 +77,14 @@ proc clear*(generator: MarkovGenerator) =
         generator.weightModel.clear()
 
 proc newMarkov*(
-    samples = newSeq[string](),
     wordProc: MarkovProcessWordProc = (proc (word: string): Option[
                     string] = some word.unicodeStringToLower()),
-    kind: MarkovGeneratorModelType = mgtSimple,
-    cacheSamples = true
+    kind: MarkovGeneratorModelType = mgtSimple
 ): MarkovGenerator =
     ## Creates an instance of Markov generator.
     result = MarkovGenerator(
         kind: kind,
-        wordProc: wordProc,
-        cacheSamples: cacheSamples
+        wordProc: wordProc
     )
 
     for sample in samples:
