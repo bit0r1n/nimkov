@@ -1,2 +1,0 @@
-nimTitle	objects	nimkov/objects.html	module nimkov/objects		0
-nim	newMarkovGenerateOptions	nimkov/objects.html#newMarkovGenerateOptions,Positive	proc newMarkovGenerateOptions(attempts: Positive = 1; begin = none string;\n                         validator = defaultValidator()): MarkovGenerateOptions		5

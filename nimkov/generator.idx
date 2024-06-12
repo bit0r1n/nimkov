@@ -1,10 +1,9 @@
 nimTitle	generator	nimkov/generator.html	module nimkov/generator		0
 nim	MarkovGenerator	nimkov/generator.html#MarkovGenerator	type MarkovGenerator		7
-nim	add	nimkov/generator.html#add,MarkovGenerator,string	proc add(generator: MarkovGenerator; sample: string)		37
-nim	add	nimkov/generator.html#add,MarkovGenerator,seq[string]	proc add(generator: MarkovGenerator; samples: seq[string])		59
-nim	samples	nimkov/generator.html#samples,MarkovGenerator	proc samples(generator: MarkovGenerator): seq[string]		64
-nim	model	nimkov/generator.html#model,MarkovGenerator	proc model(generator: MarkovGenerator): Table[string, CountTable[string]]		67
-nim	clear	nimkov/generator.html#clear,MarkovGenerator	proc clear(generator: MarkovGenerator)		78
-nim	newMarkov	nimkov/generator.html#newMarkov,MarkovProcessWordProc,MarkovGeneratorModelType	proc newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (\n    word: string): Option[string] = result = some unicodeStringToLower(word));\n          kind: MarkovGeneratorModelType = mgtSimple; cacheSamples = true): MarkovGenerator		87
-nim	generate	nimkov/generator.html#generate,MarkovGenerator	proc generate(generator: MarkovGenerator; options = newMarkovGenerateOptions()): string		104
-nimgrp	add	nimkov/generator.html#add-procs-all	proc		37
+nim	add	nimkov/generator.html#add,MarkovGenerator,string	proc add(generator: MarkovGenerator; sample: string)		35
+nim	add	nimkov/generator.html#add,MarkovGenerator,seq[string]	proc add(generator: MarkovGenerator; samples: seq[string])		55
+nim	model	nimkov/generator.html#model,MarkovGenerator	proc model(generator: MarkovGenerator): Table[string, CountTable[string]]		60
+nim	clear	nimkov/generator.html#clear,MarkovGenerator	proc clear(generator: MarkovGenerator)		71
+nim	newMarkov	nimkov/generator.html#newMarkov,MarkovProcessWordProc,MarkovGeneratorModelType	proc newMarkov(samples = newSeq(); wordProc: MarkovProcessWordProc = (proc (\n    word: string): Option[string] = result = some unicodeStringToLower(word));\n          kind: MarkovGeneratorModelType = mgtSimple): MarkovGenerator		79
+nim	generate	nimkov/generator.html#generate,MarkovGenerator,Positive,MarkovValidator	proc generate(generator: MarkovGenerator; attempts: Positive = 1;\n         begin = none string; validator: MarkovValidator = defaultValidator()): string		94
+nimgrp	add	nimkov/generator.html#add-procs-all	proc		35
