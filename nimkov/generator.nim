@@ -1,5 +1,5 @@
 import std/[ tables, strutils, options, random, sequtils ]
-import ./[ utils, constants, objects, typedefs ]
+import ./[ utils, constants, typedefs, validators ]
 
 randomize()
 
@@ -91,7 +91,10 @@ proc newMarkov*(
     for sample in samples:
         result.add(sample)
 
-proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions()): string =
+proc generate*(generator: MarkovGenerator;
+    attempts: Positive = 1, begin = none string,
+    validator: MarkovValidator = defaultValidator()
+    ): string =
     ## Generates a string.
     case generator.kind
     of mgtSimple:
@@ -101,15 +104,15 @@ proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions())
         if generator.weightModel.len == 0:
             raise MarkovEmptyModelError.newException("Model is empty")
 
-    var begin: string
-    if options.begin.isNone: begin = mrkvStart
+    var beginStr: string
+    if begin.isNone: beginStr = mrkvStart
     else:
-        let filtered = filterString(options.begin.get())
-        begin = if filtered.len > 0: mrkvStart & " " & filtered else: mrkvStart
+        let filtered = filterString(begin.get())
+        beginStr = if filtered.len > 0: mrkvStart & " " & filtered else: mrkvStart
 
-    let beginningFrames = begin.split(" ")
+    let beginningFrames = beginStr.split(" ")
 
-    for i in 0..options.attempts:
+    for i in 0..attempts:
         var attemptResult = beginningFrames
         var currentFrame = attemptResult[^1]
 
@@ -140,7 +143,7 @@ proc generate*(generator: MarkovGenerator, options = newMarkovGenerateOptions())
 
         let stringResult = attemptResult[1..^2].join(" ")
 
-        if options.validator(stringResult) == true:
+        if validator(stringResult) == true:
             return stringResult
 
     raise MarkovOutOfAttemptsError.newException("Out of attempts")

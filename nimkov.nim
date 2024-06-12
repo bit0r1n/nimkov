@@ -27,7 +27,7 @@
 ## 
 
 import ./nimkov/[
-  validators, typedefs, generator, objects
+  validators, typedefs, generator
 ]
 
-export validators, typedefs, generator, objects
+export validators, typedefs, generator
