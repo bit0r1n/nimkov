@@ -77,6 +77,7 @@ proc clear*(generator: MarkovGenerator) =
         generator.weightModel.clear()
 
 proc newMarkov*(
+    samples = newSeq[string](),
     wordProc: MarkovProcessWordProc = (proc (word: string): Option[
                     string] = some word.unicodeStringToLower()),
     kind: MarkovGeneratorModelType = mgtSimple
